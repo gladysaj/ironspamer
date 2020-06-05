@@ -28,6 +28,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// para usar motor de vistas en el backend se usa hbs (por ejemplo mandar un msj cuando entras a una ruta)
+app.set("views", path.join(__dirname, "views")); //= path-to-project/views
+app.set("view engine", "hbs");
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
